@@ -21,6 +21,26 @@ typedef struct
     int costo;
 } stServicio;
 
+typedef struct
+{
+    int día;
+    int mes;
+    int año;
+} stFecha;
+
+typedef struct
+{
+    int IdTutno;
+    stFecha fecha;
+    long DNICliente;
+    int IdCliente;
+    char Descripcion[300];
+    stServicio ServiciosIncluidos[15];
+    int CostoTotal;
+    int Anulado;    
+} stTurno;
+
+
 int ContarServicios(char Archivo[]);
 stServicio CargarUnServicio(int id);
 void CargarServicios(char Archivo[]);
@@ -188,7 +208,7 @@ int ContarClientes(char Archivo[])
     return i;
 }
 
-stCliente CargarUnCliente(int Id) ///aca si no mando la posicion actual por par�metro no se graban los datos en el archivo hasta que no cierro el buffer y no los cuenta
+stCliente CargarUnCliente(int Id) ///aca si no mando la posicion actual por parámetro no se graban los datos en el archivo hasta que no cierro el buffer y no los cuenta
 {
     stCliente Cliente;
     int alta=1;
